@@ -35,8 +35,8 @@
 #   Specifies the database user's password in plaintext. Default: password
 #
 # [*wp_owner*]
-#   Specifies the owner of the wordpress files. You must ensure this user 
-#   exists as this module does not attempt to create it if missing.  Default: 
+#   Specifies the owner of the wordpress files. You must ensure this user
+#   exists as this module does not attempt to create it if missing.  Default:
 #   root
 #
 # [*wp_group*]
@@ -77,6 +77,21 @@
 # [*wp_debug_display*]
 #   Specifies the `WP_DEBUG_DISPLAY` value that extends debugging to cause debug messages to be shown inline, in HTML pages. Default: 'false'
 #
+# [*wp_siteurl_uri*]
+#   WordPress URI.  Default: WordPress Default
+#
+# [*wp_home_uri*]
+#   WordPress Home URI.  Default: WordPress Default
+#
+# [*wp_content_uri*]
+#   WordPress Content URI. Full path, no trailing slash.  Default: WordPress Default
+#
+# [*wp_content_dir*]
+#   WordPress Content Directory. Full path, no trailing slash.  Default: WordPress Default
+#
+# [*wp_config_is_outside*]
+#   Place the wp_config.php is outside of install_dir.  Default: false
+#
 # === Requires
 #
 # === Examples
@@ -105,6 +120,11 @@ class wordpress (
   $wp_debug             = false,
   $wp_debug_log         = false,
   $wp_debug_display     = false,
+  $wp_siteurl_uri       = 'DEFAULT',
+  $wp_home_uri          = 'DEFAULT',
+  $wp_content_uri       = 'DEFAULT',
+  $wp_content_dir       = 'DEFAULT',
+  $wp_config_is_outside = false,
 ) {
   wordpress::instance { $install_dir:
     install_dir          => $install_dir,
@@ -130,5 +150,10 @@ class wordpress (
     wp_debug             => $wp_debug,
     wp_debug_log         => $wp_debug_log,
     wp_debug_display     => $wp_debug_display,
+    wp_siteurl_uri       => $wp_siteurl_uri,
+    wp_home_uri          => $wp_home_uri,
+    wp_content_uri       => $wp_content_uri,
+    wp_content_dir       => $wp_content_dir,
+    wp_config_is_outside => $wp_config_is_outside,
   }
 }

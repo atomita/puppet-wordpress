@@ -66,6 +66,21 @@
 # [*wp_site_domain*]
 #   Specifies the `DOMAIN_CURRENT_SITE` value that will be used when configuring multisite. Typically this is the address of the main wordpress instance.  Default: ''
 #
+# [*wp_siteurl_uri*]
+#   WordPress URI.  Default: WordPress Default
+#
+# [*wp_home_uri*]
+#   WordPress Home URI.  Default: WordPress Default
+#
+# [*wp_content_uri*]
+#   WordPress Content URI. Full path, no trailing slash.  Default: WordPress Default
+#
+# [*wp_content_dir*]
+#   WordPress Content Directory. Full path, no trailing slash.  Default: WordPress Default
+#
+# [*wp_config_is_outside*]
+#   Place the wp_config.php is outside of install_dir.  Default: false
+#
 # === Requires
 #
 # === Examples
@@ -94,6 +109,11 @@ define wordpress::instance (
   $wp_debug             = false,
   $wp_debug_log         = false,
   $wp_debug_display     = false,
+  $wp_siteurl_uri       = 'DEFAULT',
+  $wp_home_uri          = 'DEFAULT',
+  $wp_content_uri       = 'DEFAULT',
+  $wp_content_dir       = 'DEFAULT',
+  $wp_config_is_outside = false,
 ) {
   wordpress::instance::app { $install_dir:
     install_dir          => $install_dir,
@@ -117,6 +137,11 @@ define wordpress::instance (
     wp_debug             => $wp_debug,
     wp_debug_log         => $wp_debug_log,
     wp_debug_display     => $wp_debug_display,
+    wp_siteurl_uri       => $wp_siteurl_uri,
+    wp_home_uri          => $wp_home_uri,
+    wp_content_uri       => $wp_content_uri,
+    wp_content_dir       => $wp_content_dir,
+    wp_config_is_outside => $wp_config_is_outside,
   }
 
   wordpress::instance::db { "${db_host}/${db_name}":

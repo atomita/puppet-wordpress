@@ -92,6 +92,21 @@ This will set up one or more installations of Wordpress 3.8 on Debian and Redhat
 * `wp_debug_display`<br />
   Specifies the `WP_DEBUG_DISPLAY` value that extends debugging to cause debug messages to be shown inline, in HTML pages. Default: 'false'
 
+* `wp_siteurl_uri`<br />
+  WordPress URI.  Default: WordPress Default
+
+* `wp_home_uri`<br />
+  WordPress Home URI.  Default: WordPress Default
+
+* `wp_content_uri`<br />
+  WordPress Content URI. Full path, no trailing slash.  Default: WordPress Default
+
+* `wp_content_dir`<br />
+  WordPress Content Directory. Full path, no trailing slash.  Default: WordPress Default
+
+* `wp_config_is_outside`<br />
+  Place the wp_config.php is outside of install_dir.  Default: false
+
 ### Define wordpress::instance
 
 * The parameters for `wordpress::instance` is exactly the same as the class `wordpress` except as noted below.
